@@ -1,0 +1,241 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary: #6c63ff;
+    --secondary: #2f2e41;
+    --accent: #00d2d3;
+    --bg: #f4f4f9;
+    --text: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* --- Hero Section --- */
+header {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #fff 0%, #f0f0f5 100%);
+}
+
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: #5750cc;
+}
+
+/* --- Playground Section --- */
+#playground {
+    padding: 4rem 5%;
+    text-align: center;
+    background: white;
+}
+
+.controls button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background: var(--secondary);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+
+.controls button:hover {
+    background: var(--primary);
+}
+
+.animation-stage {
+    margin-top: 3rem;
+    height: 150px;
+    background: #eee;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    border-radius: 8px;
+    position: relative;
+    /* Transition for smooth movement */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Classes to be toggled by JS */
+.move-left { transform: translateX(-100px); }
+.move-right { transform: translateX(100px); }
+.bounce-anim { animation: bounce 0.6s infinite alternate; }
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-30px); }
+}
+
+/* --- Lessons Section --- */
+#lessons, #quiz {
+    padding: 4rem 5%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+    opacity: 0; /* For fade-in animation */
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Staggered animation for cards */
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.card-btn {
+    margin-top: 1rem;
+    padding: 8px 16px;
+    border: 1px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- Quiz Section --- */
+.quiz-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.options button:hover {
+    background: #f9f9f9;
+}
+
+.correct-ans { background: #d4edda !important; color: #155724; }
+.wrong-ans { background: #f8d7da !important; color: #721c24; }
+
+footer {
+    background: var(--secondary);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
